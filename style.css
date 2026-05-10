@@ -60,3 +60,21 @@ section{
 .logo:hover{
     transform: scale(1.05);
 }
+
+.navbar a {
+    font-size : 1.9rem;
+    color: var(--bg-color);
+    margin-left: 4rem;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.navbar a {
+  display: inline-block; /* allows transform to work */
+  transition: transform 0.3s ease, color 0.3s ease; /* smooth animation */
+}
+
+.navbar a:hover{
+    transform: scale(1.2);
+    color: #000;
+}
