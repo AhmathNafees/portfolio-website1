@@ -13,7 +13,7 @@
     --bg-color:#fff;
     --snd-bg-color:#d5fdf9;
     --text-color:#000;
-    --main-color:#0939C8; 
+    --main-color:#00072D; 
 }
 
 html{
@@ -76,7 +76,6 @@ section{
 
 .navbar a:hover,.navbar a:active{
     transform: scale(1.2);
-    color: #000;
 }
 
 #menu-icon{
@@ -119,4 +118,8 @@ section{
     100%{
         transform: translateY(0);
     }
+}
+
+.home-content{
+    margin-left: 5rem;
 }
