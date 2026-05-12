@@ -277,3 +277,21 @@ span{
     font-size: 1.6rem;
     margin: 1rem 0 3rem;
 }
+
+/* Contact Section */
+
+.contact{
+    background: var(--bg-color);
+}
+
+.contact h2{
+    margin-bottom: 3rem;
+    color: var(--main-color);
+}
+
+.contact form{
+    max-width: 80rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
