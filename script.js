@@ -11,8 +11,31 @@ window.onscroll=()=>{
     navbar.classList.remove('active');
 }
 
-const typed = new Typed('.multiple-text',{
-    strings:['Frontend Developer','Backend Developer','UI/UX Designer'],
-    typeSpeed:80,backSpeed:80,backDelay: 1200,
-    loop:true,
-});
+const texts = ['Frontend Developer', 'Backend Developer', 'UI/UX Designer'];
+let index = 0;       // which string
+let charIndex = 0;   // which character
+let isDeleting = false;
+const span = document.querySelector('.multiple-text');
+
+function typeEffect() {
+  const currentText = texts[index];
+
+  if (isDeleting) {
+    span.textContent = currentText.substring(0, charIndex--);
+    if (charIndex < 0) {
+      isDeleting = false;
+      index = (index + 1) % texts.length; // move to next string
+    }
+  } else {
+    span.textContent = currentText.substring(0, charIndex++);
+    if (charIndex > currentText.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 1000); // pause before deleting
+      return;
+    }
+  }
+
+  setTimeout(typeEffect, isDeleting ? 50 : 100); // typing vs deleting speed
+}
+
+typeEffect();
