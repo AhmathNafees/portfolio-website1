@@ -53,10 +53,14 @@ const toggleBtn = document.getElementById('toggle-btn-about');
 toggleBtn.addEventListener('click', () => {
   if (toggleBtn.textContent === 'Read More') {
     aboutText.textContent = longText;
+    aboutText.classList.remove('collapsed');
+    aboutText.classList.add('expanded');
     toggleBtn.innerHTML = '&#9650;'; // ▲ up arrow
-  } 
-  else {
+  } else {
     aboutText.textContent = shortText;
+    aboutText.classList.remove('expanded');
+    aboutText.classList.add('collapsed');
     toggleBtn.textContent = 'Read More';
   }
 });
+
