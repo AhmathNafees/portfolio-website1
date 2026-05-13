@@ -10,7 +10,7 @@ window.onscroll=()=>{
     menu.classList.remove('bx-x');
     navbar.classList.remove('active');
 }
-
+// Multitext Effect
 const texts = ['Frontend Developer', 'Backend Developer', 'UI/UX Designer'];
 let index = 0;       // which string
 let charIndex = 0;   // which character
@@ -40,3 +40,23 @@ function typeEffect() {
 }
 
 typeEffect();
+
+// Readmore btn toggle
+
+const shortText = `Full‑stack developer with hands‑on experience in building responsive web and mobile applications using modern technologies like HTML/CSS, JavaScript, PHP, React, Node.js, and Firebase. Skilled in UI/UX design, debugging, and project collaboration, with a strong academic foundation from Rajarata University of Sri Lanka.`;
+
+const longText = `I am a motivated full‑stack developer with a Bachelor’s degree in Information and Communication Technology from Rajarata University of Sri Lanka, experienced in both web and mobile application development. My internship at NEOM Global Group allowed me to design and customize WordPress‑based systems, create responsive interfaces with HTML, CSS, and JavaScript, and contribute to UI/UX design and troubleshooting. I have successfully built projects such as a Student Management System (PHP/MySQL), a Customer Management System (MERN stack with JWT authentication), and a Pharmacy Mobile App (Firebase integration). With technical expertise in React, Node.js, SQL, and Bootstrap, combined with certifications in DevOps, Flutter, and Java OOP, I bring strong problem‑solving, teamwork, and project management skills to every project.`;
+
+const aboutText = document.getElementById('about-text');
+const toggleBtn = document.getElementById('toggle-btn-about');
+
+toggleBtn.addEventListener('click', () => {
+  if (toggleBtn.textContent === 'Read More') {
+    aboutText.textContent = longText;
+    toggleBtn.innerHTML = '&#9650;'; // ▲ up arrow
+  } 
+  else {
+    aboutText.textContent = shortText;
+    toggleBtn.textContent = 'Read More';
+  }
+});
