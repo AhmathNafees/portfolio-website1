@@ -394,6 +394,8 @@ span{
     }
     .services{
         padding: 7rem;
+        padding-top: 10rem;
+        margin-bottom: -20rem;
     }
     .contact form .input-box input{
         width: 100%;
@@ -464,6 +466,12 @@ span{
     .about-img img{
         width: 70vw;
         margin-top: 4rem;
+    }
+    .services{
+        margin-bottom: 1rem;
+    }
+    .contact{
+        margin-top: -10rem;
     }
 }
 @media(max-width:617px){
