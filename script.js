@@ -26,7 +26,8 @@ function typeEffect() {
       isDeleting = false;
       index = (index + 1) % texts.length; // move to next string
     }
-  } else {
+  } 
+  else {
     span.textContent = currentText.substring(0, charIndex++);
     if (charIndex > currentText.length) {
       isDeleting = true;
@@ -35,7 +36,7 @@ function typeEffect() {
     }
   }
 
-  setTimeout(typeEffect, isDeleting ? 50 : 100); // typing vs deleting speed
+  setTimeout(typeEffect, isDeleting ? 50 : 100); //deleting vs typing speed , this line making a loop
 }
 
 typeEffect();
