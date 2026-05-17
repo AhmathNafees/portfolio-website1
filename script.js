@@ -41,7 +41,7 @@ function typeEffect() {
 
 typeEffect();
 
-// Readmore btn toggle
+// About me Readmore btn toggle
 
 const shortText = `Full‑stack developer with hands‑on experience in building responsive web and mobile applications using modern technologies like HTML/CSS, JavaScript, PHP, React, Node.js, and Firebase. Skilled in UI/UX design, debugging, and project collaboration, with a strong academic foundation from Rajarata University of Sri Lanka.`;
 
