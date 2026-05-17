@@ -64,3 +64,27 @@ toggleBtn.addEventListener('click', () => {
   }
 });
 
+// Web development Readmore btn toggle
+
+const web_shortText=`I build responsive, secure, and scalable websites using modern technologies like HTML, CSS, JavaScript, PHP, and React.`;
+
+const web_longtext=`I specialize in creating dynamic web applications tailored to client needs, from simple landing pages to complex CRUD systems. My expertise includes front‑end frameworks (React, Bootstrap), back‑end development with PHP/MySQL, and integration with Firebase for real‑time functionality. I focus on clean code, performance optimization, and security best practices, ensuring every project is both user‑friendly and maintainable.`;
+
+const webText = document.getElementById('web-dev-text');
+const webBtn = document.getElementById('toggle-btn-web-dev');
+
+webBtn.addEventListener('click',() => {
+  if(webBtn.textContent === 'Read More'){
+    webText.textContent = web_longtext;
+    webText.classList.remove('collapsed');
+    webText.classList.add('expanded');
+    webBtn.innerHTML = '&#9650';
+  }
+  else{
+    webText.textContent = web_shortText;
+    webText.classList.remove('expanded');
+    webText.classList.add('collapsed');
+    webBtn.innerHTML = 'Read More';
+  }
+
+});
