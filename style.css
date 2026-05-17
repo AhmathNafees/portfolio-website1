@@ -243,6 +243,7 @@ span{
     line-height: 1.9rem;
     text-align: justify;
 }
+
 .slide-text {
   overflow: hidden;              /* hide text when collapsed */
   max-height: 120px;             /* collapsed height (adjust to fit short text) */

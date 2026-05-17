@@ -99,10 +99,14 @@ const uiBtn = document.getElementById('toggle-btn-ui');
 uiBtn.addEventListener('click',()=>{
   if(uiBtn.textContent === 'Read More'){
     uiText.textContent= ui_longtext;
-    uiBtn.innerHTML = '&#9650'
+    uiText.classList.remove('collapsed');
+    uiText.classList.add('expanded');
+    uiBtn.innerHTML = '&#9650';
   }
   else{
     uiText.textContent = ui_shortext;
-    uiBtn.innerHTML= 'Read More'
+    uiText.classList.remove('expanded');
+    uiText.classList.add('collapsed');
+    uiBtn.innerHTML= 'Read More';
   }
 });
