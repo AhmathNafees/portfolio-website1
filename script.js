@@ -88,3 +88,21 @@ webBtn.addEventListener('click',() => {
   }
 
 });
+
+// UI/UX Readmore btn toggle
+const ui_shortext = `I design intuitive, user‑focused interfaces that enhance usability and deliver engaging digital experiences.`;
+const ui_longtext= `My UI/UX design process combines creativity with research to craft interfaces that are visually appealing and easy to navigate. I work on wireframes, prototypes, and responsive layouts, ensuring consistency across devices. With a strong eye for detail, I balance aesthetics and functionality, applying principles of accessibility and user psychology to improve interaction flow. The result is a seamless experience that keeps users engaged and satisfied.`;
+
+const uiText = document.getElementById('ui-ux-text');
+const uiBtn = document.getElementById('toggle-btn-ui');
+
+uiBtn.addEventListener('click',()=>{
+  if(uiBtn.textContent === 'Read More'){
+    uiText.textContent= ui_longtext;
+    uiBtn.innerHTML = '&#9650'
+  }
+  else{
+    uiText.textContent = ui_shortext;
+    uiBtn.innerHTML= 'Read More'
+  }
+});
