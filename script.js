@@ -53,14 +53,24 @@ const toggleBtn = document.getElementById('toggle-btn-about');
 toggleBtn.addEventListener('click', () => {
   if (toggleBtn.textContent === 'Read More') {
     aboutText.textContent = longText;
-    aboutText.classList.remove('collapsed');
-    aboutText.classList.add('expanded');
+    // measure actual height of new text
+    const fullHeight = aboutText.scrollHeight + "px";
+    aboutText.style.maxHeight = fullHeight;
+
     toggleBtn.innerHTML = '&#9650;'; // ▲ up arrow
   } else {
-    aboutText.textContent = shortText;
-    aboutText.classList.remove('expanded');
-    aboutText.classList.add('collapsed');
-    toggleBtn.textContent = 'Read More';
+    // Collapse: animate height first
+    const collapseHeight = "120px";
+    aboutText.style.maxHeight = collapseHeight;
+
+    // Wait for transition to finish, THEN swap text
+    aboutText.addEventListener('transitionend', function handler() {
+      aboutText.textContent = shortText;
+      toggleBtn.textContent = 'Read More';
+      // remove listener so it doesn’t fire multiple times
+      aboutText.removeEventListener('transitionend', handler);
+    });
+
   }
 });
 
