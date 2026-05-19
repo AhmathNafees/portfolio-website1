@@ -50,27 +50,30 @@ const longText = `I am a motivated full‑stack developer with a Bachelor’s de
 const aboutText = document.getElementById('about-text');
 const toggleBtn = document.getElementById('toggle-btn-about');
 
+// First render short text
+aboutText.textContent = shortText;
+
+// Measure short text height once
+let shortHeight = aboutText.scrollHeight + "px";
+
 toggleBtn.addEventListener('click', () => {
   if (toggleBtn.textContent === 'Read More') {
+    // Expand
     aboutText.textContent = longText;
-    // measure actual height of new text
     const fullHeight = aboutText.scrollHeight + "px";
     aboutText.style.maxHeight = fullHeight;
-
     toggleBtn.innerHTML = '&#9650;'; // ▲ up arrow
   } else {
-    // Collapse: animate height first
-    const collapseHeight = "120px";
-    aboutText.style.maxHeight = collapseHeight;
+    // Collapse: animate back to short height
+    aboutText.style.maxHeight = shortHeight;
 
-    // Wait for transition to finish, THEN swap text
+    // Wait for transition, then swap text
     aboutText.addEventListener('transitionend', function handler() {
       aboutText.textContent = shortText;
       toggleBtn.textContent = 'Read More';
-      // remove listener so it doesn’t fire multiple times
+      shortHeight = aboutText.scrollHeight + "px"; // recalc in case text changes
       aboutText.removeEventListener('transitionend', handler);
     });
-
   }
 });
 
