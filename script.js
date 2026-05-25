@@ -89,11 +89,16 @@ const web_longtext=`I specialize in creating dynamic web applications tailored t
 const webText = document.getElementById('web-dev-text');
 const webBtn = document.getElementById('toggle-btn-web-dev');
 
+webText.textContent = web_shortText;
+
+let webShortHeight = webText.scrollHeight + "px";
+webText.style.maxHeight = webShortHeight;
+
+
 webBtn.addEventListener('click',() => {
   if(webBtn.textContent === 'Read More'){
     webText.textContent = web_longtext;
-    webText.classList.remove('collapsed');
-    webText.classList.add('expanded');
+    const fullHeight = webText.scrollHeight +"px";
     webBtn.innerHTML = '&#9650';
   }
   else{
