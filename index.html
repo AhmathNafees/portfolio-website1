@@ -110,7 +110,7 @@
         form.addEventListener("submit", function(e) {
             e.preventDefault(); // stop default form submit
 
-            emailjs.sendForm("service_yv88wdq", "template_nndcsv6", this)
+            emailjs.send("service_yv88wdq", "template_nndcsv6", this)
             .then(() => {
                 alert("✅ Message sent successfully!");
                 form.reset(); // clear form after success
