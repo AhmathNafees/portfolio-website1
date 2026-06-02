@@ -86,40 +86,56 @@
         <h2 class="heading">Contact <span>Me</span></h2>
 
         <form id="contact-form">
+            <input type="hidden" name="time" id="time">
             <div class="input-box">
                 <input type="text" name="name" id="name" placeholder="Full Name">
                 <input type="email" name="email" id="email" placeholder="Email Address">
             </div>
 
             <div class="input-box">
-                <input type="number" name="phone-no" id="phone-no" placeholder="Phone Number">
+                <input type="number" name="phone" id="phone-no" placeholder="Phone Number">
                 <input type="text" name="email-subject" id="email-subject" placeholder="Email Subject">
             </div>
             <textarea name="message" id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
             <input type="submit" value="Send Message" class="btn">
         </form>
     </section>
-    <script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
-    <script>
-    // Initialize EmailJS with your Public Key
-    emailjs.init("LxrT_DpWtjZLp2pDO"); 
+    <script
+        type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
     <script>
+        (function() {
+        // Initialize EmailJS with your Public Key
+        emailjs.init({
+            publicKey: "LxrT_DpWtjZLp2pDO" // replace with your actual Public Key
+        });
+        })();
+  </script>
+    <script>
+        window.onload = function() {
         const form = document.getElementById("contact-form");
 
-        form.addEventListener("submit", function(e) {
-            e.preventDefault(); // stop default form submit
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
 
-            emailjs.send("service_yv88wdq", "template_nndcsv6", this)
+            // Set current time dynamically
+            const now = new Date();
+            document.getElementById("time").value = now.toLocaleString();
+
+            // Send form via EmailJS
+            emailjs.sendForm("service_yv88wdq", "template_nndcsv6", this)
             .then(() => {
                 alert("✅ Message sent successfully!");
-                form.reset(); // clear form after success
+                form.reset();
             })
             .catch((error) => {
                 alert("❌ Failed to send message: " + JSON.stringify(error));
             });
         });
-    </script>
+        };
+
+  </script>
 
 
 
