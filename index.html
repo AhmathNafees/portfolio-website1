@@ -85,7 +85,7 @@
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me</span></h2>
 
-        <form action="">
+        <form id="contact-form">
             <div class="input-box">
                 <input type="text" name="name" id="name" placeholder="Full Name">
                 <input type="email" name="email" id="email" placeholder="Email Address">
@@ -99,6 +99,29 @@
             <input type="submit" value="Send Message" class="btn">
         </form>
     </section>
+    <script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+    <script>
+    // Initialize EmailJS with your Public Key
+    emailjs.init("LxrT_DpWtjZLp2pDO"); 
+    </script>
+    <script>
+        const form = document.getElementById("contact-form");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault(); // stop default form submit
+
+            emailjs.sendForm("service_yv88wdq", "template_nndcsv6", this)
+            .then(() => {
+                alert("✅ Message sent successfully!");
+                form.reset(); // clear form after success
+            })
+            .catch((error) => {
+                alert("❌ Failed to send message: " + JSON.stringify(error));
+            });
+        });
+    </script>
+
+
 
     <!-- Footer Section -->
     <footer class="footer">
